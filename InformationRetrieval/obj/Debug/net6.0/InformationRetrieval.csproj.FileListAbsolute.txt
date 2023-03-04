@@ -1,0 +1,15 @@
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\bin\Debug\net6.0\InformationRetrieval.exe
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\bin\Debug\net6.0\InformationRetrieval.deps.json
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\bin\Debug\net6.0\InformationRetrieval.runtimeconfig.json
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\bin\Debug\net6.0\InformationRetrieval.dll
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\bin\Debug\net6.0\InformationRetrieval.pdb
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.csproj.AssemblyReference.cache
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.AssemblyInfoInputs.cache
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.AssemblyInfo.cs
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.csproj.CoreCompileInputs.cache
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.dll
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\refint\InformationRetrieval.dll
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.pdb
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\InformationRetrieval.genruntimeconfig.cache
+D:\Code PJ\VSCodeProjects\InformationRetrieval\InformationRetrieval\obj\Debug\net6.0\ref\InformationRetrieval.dll
