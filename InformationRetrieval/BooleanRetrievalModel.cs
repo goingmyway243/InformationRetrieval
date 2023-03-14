@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,6 @@ namespace InformationRetrieval
         private readonly string[] _boolOperators = new string[] { "and", "or" };
 
         private readonly List<string> _docs;
-        private readonly List<string> _queries;
         private readonly List<string> _stopWords;
 
         private Dictionary<int, List<string>> _documentDics = new Dictionary<int, List<string>>();
@@ -20,16 +20,15 @@ namespace InformationRetrieval
 
         private List<string> _filteredQuery = new List<string>();
 
-        public BooleanRetrievalModel(List<string> docs, List<string> queries, List<string> stopWords)
+        public BooleanRetrievalModel(List<string> docs, List<string> stopWords)
         {
             _docs = docs;
-            _queries = queries;
             _stopWords = stopWords;
         }
 
-        public void GetResultAtQueryNumber(int queryNumber)
+        public void GetResultAtQueryNumber(string query)
         {
-            PrepareData(queryNumber);
+            PrepareData(query);
             IndicateMatrix();
 
             var resultMatrix = ProcessBooleanRetrieval();
@@ -93,7 +92,7 @@ namespace InformationRetrieval
             return resultMatrix;
         }
 
-        private void PrepareData(int queryNumber)
+        private void PrepareData(string query)
         {
             // Prepare termList and documentDics
             foreach (string doc in _docs)
@@ -123,9 +122,7 @@ namespace InformationRetrieval
             _termList.Sort();
 
             // Filter term that not in termList
-            queryNumber = queryNumber < _queries.Count ? queryNumber : 0;
-            List<string> query = RemoveStopwords(_queries[queryNumber].Trim().ToLower().Split('\n')[1].Trim().Split(' '));
-            _filteredQuery = FilterQueryTerm(query.ToArray());
+            _filteredQuery = FilterQueryTerm(RemoveStopwords(query.Trim().Split(' ')).ToArray());
         }
 
         private void IndicateMatrix()

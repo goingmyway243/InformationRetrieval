@@ -5,7 +5,6 @@
         private readonly string[] _boolOperators = new string[] { "and", "or" };
 
         private readonly List<string> _docs;
-        private readonly List<string> _queries;
         private readonly List<string> _stopWords;
 
         private Dictionary<int, List<string>> _documentDics = new Dictionary<int, List<string>>();
@@ -13,16 +12,15 @@
         private Dictionary<string, List<int>> _postingListDics = new Dictionary<string, List<int>>();
         private List<string> _filteredQuery = new List<string>();
 
-        public InvertedIndex(List<string> docs, List<string> queries, List<string> stopWords)
+        public InvertedIndex(List<string> docs, List<string> stopWords)
         {
             _docs = docs;
-            _queries = queries;
             _stopWords = stopWords;
         }
 
-        public void GetResultAtQueryNumber(int queryNumber, int stepSkip = 0)
+        public void GetResultAtQueryNumber(string query, int stepSkip = 0)
         {
-            PrepareData(queryNumber);
+            PrepareData(query);
             IndicatePostingList();
 
             var resultMatrix = ProcessInvertedIndex(stepSkip);
@@ -132,7 +130,7 @@
                 {
                     if ((p1 + skipStep) < postingList1.Count && postingList1[p1 + skipStep] <= docId2)
                     {
-                        while ((p1 + skipStep) < postingList1.Count &&postingList1[p1 + skipStep] <= docId2)
+                        while ((p1 + skipStep) < postingList1.Count && postingList1[p1 + skipStep] <= docId2)
                         {
                             p1 += skipStep;
                         }
@@ -176,7 +174,7 @@
             }
         }
 
-        private void PrepareData(int queryNumber)
+        private void PrepareData(string query)
         {
             // Prepare termList and documentDics
             foreach (string doc in _docs)
@@ -206,9 +204,7 @@
             _termList.Sort();
 
             // Filter term that not in termList
-            queryNumber = queryNumber < _queries.Count ? queryNumber : 0;
-            List<string> query = RemoveStopwords(_queries[queryNumber].Trim().ToLower().Split('\n')[1].Trim().Split(' '));
-            _filteredQuery = FilterQueryTerm(query.ToArray());
+            _filteredQuery = FilterQueryTerm(RemoveStopwords(query.Trim().Split(' ')).ToArray());
         }
 
         private List<string> RemoveStopwords(string[] content)
