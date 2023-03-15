@@ -42,6 +42,7 @@ switch (int.Parse(choose))
         {
             var test = new List<int>() { 824, 5, 214577 };
             var docIDCompression = new DocIDCompression();
+
             var encoded = docIDCompression.EncodeVB(test);
 
             var resultStr = docIDCompression.ToBinaryNumberString(encoded);
@@ -55,6 +56,29 @@ switch (int.Parse(choose))
 
             var decoded = docIDCompression.DecodeVB(encoded);
             Console.WriteLine("Decode VB:");
+            foreach (var res in decoded)
+            {
+                Console.WriteLine(res);
+            }
+
+            break;
+        }
+    case 5:
+        {
+            var test = new List<int>() { 9, 13, 24, 511, 1025 };
+            var docIDCompression = new DocIDCompression();
+            var encoded = docIDCompression.EncodeGamma(test);
+
+            Console.WriteLine("Encode Gamma:");
+            foreach (var res in encoded)
+            {
+                Console.WriteLine(res);
+            }
+
+            Console.WriteLine();
+
+            var decoded = docIDCompression.DecodeGamma(encoded);
+            Console.WriteLine("Decode Gamma:");
             foreach (var res in decoded)
             {
                 Console.WriteLine(res);

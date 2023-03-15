@@ -8,6 +8,36 @@ namespace InformationRetrieval
 {
     public class DocIDCompression
     {
+        public List<string> EncodeGamma(List<int> numbers)
+        {
+            var result = new List<string>();
+            foreach (var number in numbers)
+            {
+                var offset = Convert.ToString(number, 2).Substring(1);
+                var length = new string('1', offset.Length) + "0";
+
+                var ganmaCode = $"{length},{offset}";
+
+                result.Add(ganmaCode);
+            }
+
+            return result;
+        }
+
+        public List<int> DecodeGamma(List<string> encoded)
+        {
+            var result = new List<int>();
+
+            foreach(var ganma in encoded)
+            {
+                var offset = $"1{ganma.Split(',')[1]}";
+                var number = Convert.ToInt32(offset, 2);
+                result.Add(number);
+            }
+
+            return result;
+        }
+
         public List<string> ToBinaryNumberString(List<int[]> bytestream)
         {
             var result = new List<string>();
